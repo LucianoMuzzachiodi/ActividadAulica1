@@ -32,4 +32,20 @@ public class Baraja {
         }
         return cartas.remove(0);
     }
+    
+    public int cartasDisponibles() {
+        return cartas.size();
+    }
+    
+    public List<Carta> darCartas(int cantidad) {
+        if (cantidad > cartas.size()) {
+            System.out.println("No hay suficientes cartas disponibles.");
+            return new ArrayList<>();
+        }
+        List<Carta> mano = new ArrayList<>();
+        for (int i = 0; i < cantidad; i++) {
+            mano.add(cartas.remove(0));
+        }
+        return mano;
+    }
 }
