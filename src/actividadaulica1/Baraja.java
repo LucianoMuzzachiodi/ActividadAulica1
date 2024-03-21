@@ -36,16 +36,38 @@ public class Baraja {
     public int cartasDisponibles() {
         return cartas.size();
     }
-    
+     
     public List<Carta> darCartas(int cantidad) {
-        if (cantidad > cartas.size()) {
-            System.out.println("No hay suficientes cartas disponibles.");
-            return new ArrayList<>();
+        List<Carta> cartasADar = new ArrayList<>();
+        if (cartasDisponibles() >= cantidad) {
+            for (int i = 0; i < cantidad; i++) {
+                cartasADar.add(siguienteCarta());
+            }
+        } else {
+            System.out.println("No hay suficientes cartas en la baraja para dar.");
         }
-        List<Carta> mano = new ArrayList<>();
-        for (int i = 0; i < cantidad; i++) {
-            mano.add(cartas.remove(0));
+        return cartasADar;
+    }
+
+    public void cartasMonton() {
+        if (cartas.isEmpty()) {
+            System.out.println("No ha salido ninguna carta del montón.");
+        } else {
+            System.out.println("Cartas en el montón:");
+            for (Carta carta : cartas) {
+                System.out.println(carta);
+            }
         }
-        return mano;
+    }
+
+    public void mostrarBaraja() {
+        if (cartas.isEmpty()) {
+            System.out.println("No quedan más cartas en la baraja.");
+        } else {
+            System.out.println("Cartas restantes en la baraja:");
+            for (Carta carta : cartas) {
+                System.out.println(carta);
+            }
+        }
     }
 }
