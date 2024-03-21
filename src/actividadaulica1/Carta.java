@@ -13,6 +13,8 @@ public class Carta {
 
     @Override
     public String toString() {
-        return numero + " de " + palo;
+        return "Carta{" + "numero=" + numero + ", palo=" + palo + '}';
     }
+
+   
 }

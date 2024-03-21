@@ -26,6 +26,9 @@ public class Baraja {
     }
     
     public Carta siguienteCarta() {
+        for(Carta cartas:carta){
+        
+        }
         if (cartas.isEmpty()) {
             System.out.println("No hay más cartas en la baraja.");
             return null;
