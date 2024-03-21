@@ -19,8 +19,12 @@ public class ActividadAulica1 {
         System.out.println(baraja.darCartas(5));
 
         System.out.println("Número de cartas disponibles: " + baraja.cartasDisponibles());
+        
+        System.out.println("_____________________________________________");
 
         baraja.cartasMonton();
+        
+        System.out.println("---------------------------------------------");
 
         baraja.mostrarBaraja();
     }

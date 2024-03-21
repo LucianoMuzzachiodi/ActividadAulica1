@@ -8,9 +8,11 @@ import java.util.List;
 
 public class Baraja {
      private List<Carta> cartas;
+    private List<Carta> cartasRepartidas;
 
     public Baraja() {
         cartas = new ArrayList<>();
+        cartasRepartidas = new ArrayList<>();
         String[] palos = {"espadas", "bastos", "oros", "copas"};
         for (String palo : palos) {
             for (int numero = 1; numero <= 12; numero++) {
@@ -24,50 +26,49 @@ public class Baraja {
     public void barajar() {
         Collections.shuffle(cartas);
     }
-    
+
     public Carta siguienteCarta() {
         if (cartas.isEmpty()) {
             System.out.println("No hay más cartas en la baraja.");
             return null;
         }
-        return cartas.remove(0);
+        Carta carta = cartas.remove(0);
+        cartasRepartidas.add(carta);
+        return carta;
     }
-    
+
     public int cartasDisponibles() {
         return cartas.size();
     }
-     
+
     public List<Carta> darCartas(int cantidad) {
-        List<Carta> cartasADar = new ArrayList<>();
-        if (cartasDisponibles() >= cantidad) {
-            for (int i = 0; i < cantidad; i++) {
-                cartasADar.add(siguienteCarta());
+        List<Carta> mano = new ArrayList<>();
+        for (int i = 0; i < cantidad; i++) {
+            Carta carta = siguienteCarta();
+            if (carta != null) {
+                mano.add(carta);
+            } else {
+                break; // No hay más cartas
             }
-        } else {
-            System.out.println("No hay suficientes cartas en la baraja para dar.");
         }
-        return cartasADar;
+        return mano;
     }
 
     public void cartasMonton() {
-        if (cartas.isEmpty()) {
-            System.out.println("No ha salido ninguna carta del montón.");
+        if (cartasRepartidas.isEmpty()) {
+            System.out.println("Aún no se han repartido cartas.");
         } else {
-            System.out.println("Cartas en el montón:");
-            for (Carta carta : cartas) {
+            System.out.println("Cartas repartidas:");
+            for (Carta carta : cartasRepartidas) {
                 System.out.println(carta);
             }
         }
     }
 
     public void mostrarBaraja() {
-        if (cartas.isEmpty()) {
-            System.out.println("No quedan más cartas en la baraja.");
-        } else {
-            System.out.println("Cartas restantes en la baraja:");
-            for (Carta carta : cartas) {
-                System.out.println(carta);
-            }
+        System.out.println("Cartas sin repartir:");
+        for (Carta carta : cartas) {
+            System.out.println(carta);
         }
     }
 }
