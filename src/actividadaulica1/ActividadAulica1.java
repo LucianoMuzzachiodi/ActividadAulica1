@@ -8,7 +8,7 @@ public class ActividadAulica1 {
 
     
     public static void main(String[] args) {
-  Baraja baraja = new Baraja();
+        Baraja baraja = new Baraja();
         baraja.barajar();
 
         System.out.println("Número de cartas disponibles: " + baraja.cartasDisponibles());

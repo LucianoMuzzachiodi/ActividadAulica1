@@ -3,7 +3,7 @@ package actividadaulica1;
 
 
 public class Carta {
-      private int numero;
+    private int numero;
     private String palo;
 
     public Carta(int numero, String palo) {

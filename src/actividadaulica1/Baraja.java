@@ -7,7 +7,7 @@ import java.util.List;
 
 
 public class Baraja {
-     private List<Carta> cartas;
+    private List<Carta> cartas;
     private List<Carta> cartasRepartidas;
 
     public Baraja() {
