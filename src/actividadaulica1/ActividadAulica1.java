@@ -27,17 +27,19 @@ public class ActividadAulica1 {
             case 1:{System.out.println("[Cartas barajadas]");
             baraja.barajar();}
             break;
-            case 2:{System.out.println("[La siguiente carta es: ]");
-            baraja.siguienteCarta();}
+            case 2:{System.out.println("[Sacando una carta]");
+                System.out.println(baraja.siguienteCarta());}
+            
             break;
             case 3:{System.out.println("[Las cartas disponibles son: ]");
-            baraja.cartasDisponibles();}
+                System.out.println(baraja.cartasDisponibles());}
+            
             break;
             case 4:{System.out.println("[Ingrese la cantidad de cartas que quiera que se le repartan]");
            int cantidad=leer.nextInt();
-            baraja.darCartas(cantidad);}
+                System.out.println(baraja.darCartas(cantidad));}
             break;
-            case 5:{System.out.println("[Las cartas que salieron son:]");
+            case 5:{
             baraja.cartasMonton();}
             case 6: {System.out.println("[Las cartas que no se han sacado son:]");
             baraja.cartasDisponibles();}
@@ -47,6 +49,6 @@ public class ActividadAulica1 {
             
         }
         }while(opcion!=7);
-        System.out.println("A finalizado el juego!");
+        System.out.println("A finalizado el juego!");  
     }
 }
