@@ -24,4 +24,12 @@ public class Baraja {
     public void barajar() {
         Collections.shuffle(cartas);
     }
+    
+    public Carta siguienteCarta() {
+        if (cartas.isEmpty()) {
+            System.out.println("No hay más cartas en la baraja.");
+            return null;
+        }
+        return cartas.remove(0);
+    }
 }
