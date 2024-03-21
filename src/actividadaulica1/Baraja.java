@@ -28,46 +28,47 @@ public class Baraja {
     }
 
     public Carta siguienteCarta() {
-        if (!cartas.isEmpty()) {
-            return cartas.remove(0);
-            
-        } else {
+        if (cartas.isEmpty()) {
             System.out.println("No hay más cartas en la baraja.");
             return null;
         }
+        Carta carta = cartas.remove(0);
+        cartasRepartidas.add(carta);
+        return carta;
     }
 
     public int cartasDisponibles() {
         return cartas.size();
     }
 
-     public List<Carta> darCartas(int cantidad) {
-        List<Carta> cartasDadas = new ArrayList<>();
-        if (cantidad <= cartas.size()) {
-            for (int i = 0; i < cantidad; i++) {
-                cartasDadas.add(cartas.remove(0));
+    public List<Carta> darCartas(int cantidad) {
+        List<Carta> mano = new ArrayList<>();
+        for (int i = 0; i < cantidad; i++) {
+            Carta carta = siguienteCarta();
+            if (carta != null) {
+                mano.add(carta);
+            } else {
+                break; // No hay más cartas
             }
-        } else {
-            System.out.println("No hay suficientes cartas disponibles.");
         }
-        return cartasDadas;
+        return mano;
     }
 
     public void cartasMonton() {
         if (cartasRepartidas.isEmpty()) {
             System.out.println("Aún no se han repartido cartas.");
         } else {
-            System.out.println("Las cartas repartidas son: ");
+            System.out.println("Cartas repartidas:");
             for (Carta carta : cartasRepartidas) {
-                System.out.println(carta.toString());
+                System.out.println(carta);
             }
         }
     }
 
     public void mostrarBaraja() {
-       
+        System.out.println("Cartas sin repartir:");
         for (Carta carta : cartas) {
-            System.out.println(carta.toString());
+            System.out.println(carta);
         }
     }
 }

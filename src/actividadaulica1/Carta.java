@@ -3,7 +3,7 @@ package actividadaulica1;
 
 
 public class Carta {
-     private int numero;
+      private int numero;
     private String palo;
 
     public Carta(int numero, String palo) {
@@ -13,8 +13,6 @@ public class Carta {
 
     @Override
     public String toString() {
-        return "Carta{" + "numero=" + numero + ", palo=" + palo + '}';
+        return numero + " de " + palo;
     }
-
-   
 }
