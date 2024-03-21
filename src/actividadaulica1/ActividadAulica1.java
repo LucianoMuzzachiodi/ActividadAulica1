@@ -8,6 +8,7 @@ public class ActividadAulica1 {
 
     
     public static void main(String[] args) {
+
        int opcion = 0;
         Baraja baraja=new Baraja();
         do{
@@ -47,7 +48,5 @@ public class ActividadAulica1 {
         }
         }while(opcion!=7);
         System.out.println("A finalizado el juego!");
-        
     }
-    
 }
